@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Store password
 echo "$DB_HOSTNAME:$DB_PORT:$DB_NAME:$DB_USERNAME:$DB_PASSWORD" > ~/.pgpass
 chmod 0600 ~/.pgpass
