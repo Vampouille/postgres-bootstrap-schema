@@ -1,0 +1,13 @@
+version: "2"
+services:
+  bootstrap:
+    image: vampouille/postgres-bootstrap-schema
+    build: ./
+    environment:
+      - DB_NAME=georchestra
+      - DB_HOSTNAME=172.17.0.1
+      - DB_PORT=54322
+      - DB_USERNAME=georchestra
+      - DB_SCHEMA=mapfishapp
+      - DB_PASSWORD=georchestra
+      - DB_BOOTSTRAP_URL=https://raw.githubusercontent.com/georchestra/georchestra/master/postgresql/02-mapfishapp.sql
