@@ -20,10 +20,10 @@ while true; do
 done
 
 # Check if schema already exists
-psql --host $DB_HOSTNAME --port=$DB_PORT --username=$DB_USERNAME -c "\dn" -q --tuples-only $DB_NAME | grep $DB_SCHEMA > /dev/null
+psql -w --host $DB_HOSTNAME --port=$DB_PORT --username=$DB_USERNAME -c "\dn" -q --tuples-only $DB_NAME | grep $DB_SCHEMA > /dev/null
 if [ $? -ne 0 ]; then
   # Schema does not exists, bootstrap DB
-  wget --quiet -O - $DB_BOOTSTRAP_URL | psql --host $DB_HOSTNAME --port=$DB_PORT --username=$DB_USERNAME $DB_NAME
+  wget --quiet -O - $DB_BOOTSTRAP_URL | psql -w --host $DB_HOSTNAME --port=$DB_PORT --username=$DB_USERNAME $DB_NAME
   echo "Schema $DB_SCHEMA created"
 else
   echo "Schema $DB_SCHEMA already exists"
