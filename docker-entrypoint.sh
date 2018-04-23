@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 set -x
 # Store password
 echo "$DB_HOSTNAME:$DB_PORT:$DB_NAME:$DB_USERNAME:$DB_PASSWORD" > ~/.pgpass
